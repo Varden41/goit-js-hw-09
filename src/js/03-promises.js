@@ -6,7 +6,9 @@ const refs = {
   step: document.querySelector("[name='step']"),
   amount: document.querySelector("[name='amount']"),
 };
-refs.form.addEventListener('submit', e => {
+refs.form.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
   e.preventDefault();
 
   let DELAY = Number(refs.delay.value);
@@ -23,7 +25,7 @@ refs.form.addEventListener('submit', e => {
     DELAY += DELAY_STEP;
   }
   refs.form.reset();
-});
+}
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
