@@ -49,10 +49,13 @@ const fP = flatpickr('#datetime-picker', options);
 
 refs.startBtn.addEventListener('click', onStart);
 
+let timerId = null;
+
 function onStart() {
   refs.startBtn.disabled = true;
   const startTime = fP.selectedDates[0].getTime();
-  const timerId = setInterval(() => {
+  clearInterval(timerId);
+  timerId = setInterval(() => {
     const currentTime = Date.now();
     const timerTime = startTime - currentTime;
     const { days, hours, minutes, seconds } = convertMs(timerTime);
