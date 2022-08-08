@@ -5,6 +5,7 @@ const body = document.querySelector('body');
 
 start.addEventListener('click', onStart);
 stop.addEventListener('click', onStop);
+let timerId = null;
 function onStart() {
   timerId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
