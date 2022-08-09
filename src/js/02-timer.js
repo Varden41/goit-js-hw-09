@@ -52,6 +52,7 @@ refs.startBtn.addEventListener('click', onStart);
 let timerId = null;
 
 function onStart() {
+  refs.datePicker.disabled = true;
   refs.startBtn.disabled = true;
   const startTime = fP.selectedDates[0].getTime();
   clearInterval(timerId);
